@@ -16,20 +16,21 @@ const pokemonDetailImageBack = document.querySelector(".poke-back-image");
 const resetScreen = () => {
   availableTypes.forEach(type => {
     if (pokemonDetailMainScreen.classList.contains(type)) {
-      pokemonDetailMainScreen.classList.remove(type)
+      pokemonDetailMainScreen.classList.remove(type);
     }
 
     if (pokemonDetailType1.classList.contains(type)) {
-      pokemonDetailType1.classList.remove(type)
+      pokemonDetailType1.classList.remove(type);
     }
 
     if (pokemonDetailType2.classList.contains(type)) {
-      pokemonDetailType2.classList.remove(type)
+      pokemonDetailType2.classList.remove(type);
     }
   });
 
-  pokemonDetailType1.classList.remove("hide");
   pokemonDetailType2.classList.remove("hide");
+  pokemonDetailType1.innerText = "";
+  pokemonDetailType2.innerText = "";
 }
 
 const renderPokemonList = (pokemons) => {
@@ -79,6 +80,8 @@ const renderPokemonDetail = (pokemon) => {
   pokemonDetailMainScreen.classList.add(pokemonType1);
   pokemonDetailType1.classList.add(pokemonType1);
   pokemonDetailType2.classList.add(pokemonType2 ? pokemonType2 : "hide");
+  pokemonDetailType1.innerText = UCFirst(pokemonType1);
+  pokemonDetailType2.innerText = pokemonType2 ? UCFirst(pokemonType2) : "hide";
 
   pokemonDetailMainScreen.classList.remove("hide");
 
